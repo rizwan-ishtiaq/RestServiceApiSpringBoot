@@ -77,7 +77,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 	}
 
 	@Override
-	public void updateStatus(String jobTitle, String candidateEmail, String newStatus) {
+	public Application updateStatus(String jobTitle, String candidateEmail, String newStatus) {
 		ApplicationStatus newStat;
 		//Convert string status to Enum
 		try {
@@ -91,6 +91,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 		application.setStatus(newStat);
 		// Status change successfully now notify
 		notificationService.notifyApplicationStatusChange(oldStatus, newStat);
+		return application;
 	}
 
 	// ------------- Getter & Setters -------------
