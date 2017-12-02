@@ -14,19 +14,18 @@ public class DefaultController {
 	@RequestMapping(method = RequestMethod.GET)
 	public Map<String, String> showHelp() {
 		Map<String, String> m = new HashMap<>();
-		m.put("Enpoint", "Method, Description");
+		m.put("Method:Enpoint", "Description");
 
-		m.put("/jobs", "GET, List all offers");
-		m.put("/jobs", "POST, Add new offer");
-		m.put("/jobs/{jobTitle}", "GET, Return single offer");
+		m.put("GET:/jobs", "List all offers");
+		m.put("POST:/jobs", "Add new offer");
+		m.put("GET:/jobs/{jobTitle}", "Return single offer");
 
-		m.put("/jobs/{jobTitle}/applications", "GET, List all application on offer");
-		m.put("/jobs/{jobTitle}/applications", "POST, Apply candidate application");
-		m.put("/jobs/{jobTitle}/applications/{candidateEmail}",
-				"GET, Return single application on offer for candidate");
+		m.put("GET:/jobs/{jobTitle}/applications", "List all application on offer");
+		m.put("POST:/jobs/{jobTitle}/applications", "Apply candidate application");
+		m.put("GET:/jobs/{jobTitle}/applications/{candidateEmail}", "Return single application on offer for candidate");
 
-		m.put("/jobs/{jobTitle}/applications/{candidateEmail}/change/{status}",
-				"PUT, Change the status of particular job");
+		m.put("PUT:/jobs/{jobTitle}/applications/{candidateEmail}/change/{status}",
+				"Change the status of particular job");
 		return m;
 	}
 
