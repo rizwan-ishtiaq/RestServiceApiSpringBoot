@@ -29,8 +29,13 @@ In memory Service that handles a (very simple) recruiting process. The process r
 </ul>
 
 # Run Project
-This is simple maven project<br/>
-on Project root , mvn spring-boot:run
+<ol type="1">
+  <li>This is simple maven project</li>
+  <li>Download or Clone project</li>
+  <li>Goto project root directory</li>
+  <li>mvn spring-boot:run</li>
+  <li>http://localhost:8080/</li>
+</ol>
 
 # End points
 <table>
