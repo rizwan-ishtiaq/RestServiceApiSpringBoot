@@ -125,7 +125,7 @@ POST	http://localhost:8080/jobs/job1/applications<br/>
 Apply candidate application (use following body)<br/>
 {<br/>
 "candidateEmail":"rizwan@mail.com",<br/>
-"resumeText":"This is my resume",<br/>
+"resumeText":"This is my resume"<br/>
 }<br/>
 
 GET	http://localhost:8080/jobs/{jobTitle}/applications<br/>
@@ -136,6 +136,6 @@ GET	http://localhost:8080/jobs/{jobTitle}/applications/{candidateEmail}<br/>
 GET	http://localhost:8080/jobs/job1/applications/rizwan@mail.com<br/>
 Return single application on offer for candidate<br/>
 
-PUT	http://localhost:8080/jobs/job1/applications/rizwan@mail.com/change/INVITED<br/>
 PUT	http://localhost:8080/jobs/{jobTitle}/applications/{candidateEmail}/change/{status}<br/>
+PUT	http://localhost:8080/jobs/job1/applications/rizwan@mail.com/change/INVITED<br/>
 Change the status of particular job<br/>
