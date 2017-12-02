@@ -99,3 +99,43 @@ In memory Service that handles a (very simple) recruiting process. The process r
   <li>JSON (jackson)</li>
   <li>JAVAX Validation</li>
 </ul>
+
+# Usage
+For consuming service one can use firefox or chorme extension search for REST service testing<br/>
+
+set request header<br/>
+Content-Type=application/json;charset=UTF-8<br/>
+
+GET 	http://localhost:8080/<br/>
+Will Return all the endpoints in JSON<br/>
+
+POST	http://localhost:8080/jobs<br/>
+Add new offer (use following body)<br/>
+{"jobTitle":"job1"}<br/>
+
+GET	http://localhost:8080/jobs	<br/>
+List all offers<br/>
+
+GET	http://localhost:8080/jobs/{jobTitle}<br/>
+GET	http://localhost:8080/jobs/job1<br/>
+Get Single job<br/>
+
+POST	http://localhost:8080/jobs/{jobTitle}/applications<br/>
+POST	http://localhost:8080/jobs/job1/applications<br/>
+Apply candidate application (use following body)<br/>
+{<br/>
+"candidateEmail":"rizwan@mail.com",<br/>
+"resumeText":"This is my resume",<br/>
+}<br/>
+
+GET	http://localhost:8080/jobs/{jobTitle}/applications<br/>
+GET	http://localhost:8080/jobs/job1/applications<br/>
+List all application on offer<br/>
+
+GET	http://localhost:8080/jobs/{jobTitle}/applications/{candidateEmail}<br/>
+GET	http://localhost:8080/jobs/job1/applications/rizwan@mail.com<br/>
+Return single application on offer for candidate<br/>
+
+PUT	http://localhost:8080/jobs/job1/applications/rizwan@mail.com/change/INVITED<br/>
+PUT	http://localhost:8080/jobs/{jobTitle}/applications/{candidateEmail}/change/{status}<br/>
+Change the status of particular job<br/>
