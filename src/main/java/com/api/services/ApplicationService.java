@@ -102,6 +102,8 @@ public interface ApplicationService {
 	 * @param newStatus
 	 *            new status of application
 	 * 
+	 * @return updated application
+	 * 
 	 * @throws ApplicationStatusInvalidException
 	 *             If param newStatus can't convert to {@link ApplicationStatus}
 	 * @throws OfferNotFoundException
@@ -112,6 +114,6 @@ public interface ApplicationService {
 	 * 
 	 * @see NotificationService
 	 */
-	void updateStatus(String jobTitle, String candidateEmail, String newStatus);
+	Application updateStatus(String jobTitle, String candidateEmail, String newStatus);
 
 }
