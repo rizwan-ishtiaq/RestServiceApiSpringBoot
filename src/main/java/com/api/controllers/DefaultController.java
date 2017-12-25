@@ -14,7 +14,6 @@ public class DefaultController {
 	@RequestMapping(method = RequestMethod.GET)
 	public Map<String, String> showHelp() {
 		Map<String, String> m = new HashMap<>();
-		m.put("Method:Enpoint", "Description");
 
 		m.put("GET:/jobs", "List all offers");
 		m.put("POST:/jobs", "Add new offer");
