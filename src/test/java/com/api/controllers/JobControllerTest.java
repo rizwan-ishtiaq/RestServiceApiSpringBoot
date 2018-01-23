@@ -15,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.AppEntryClass;
-import com.api.entities.Application;
 import com.api.entities.Offer;
 import com.api.repositories.OfferRepository;
 import com.api.services.OfferService;
@@ -96,16 +95,7 @@ public class JobControllerTest {
 		mockMvc.perform(get("/jobs/jobn").contentType(contentType)).andExpect(status().isNotFound());
 	}
 
-	/**
-	 * return proper status codes for the application not found
-	 * 
-	 * @throws Exception
-	 */
-	@Test
-	public void applicationNotFound() throws Exception {
-		mockMvc.perform(get("/jobs/job1/applications/user@not.exist").contentType(contentType))
-				.andExpect(status().isNotFound());
-	}
+
 
 	/**
 	 * Read single offer
@@ -146,21 +136,6 @@ public class JobControllerTest {
 		String bookmarkJson = toJson(offer);
 
 		this.mockMvc.perform(post("/jobs").contentType(contentType).content(bookmarkJson))
-				.andExpect(status().isCreated());
-	}
-
-	/**
-	 * candidate has to be able to apply for an offer
-	 * 
-	 * @throws Exception
-	 */
-	@Test
-	public void applyApplication() throws Exception {
-		Application application = new Application();
-		application.setCandidateEmail("rizwan@test.com");
-		String bookmarkJson = toJson(application);
-
-		this.mockMvc.perform(post("/jobs/job1/applications").contentType(contentType).content(bookmarkJson))
 				.andExpect(status().isCreated());
 	}
 

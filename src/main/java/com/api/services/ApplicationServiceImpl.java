@@ -53,8 +53,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 	@Override
 	public Optional<Application> findByOfferAndCandidateEmail(String jobTitle, String candidateEmail) {
 		Offer offer = offerService.getOfferByJobTitle(jobTitle);
-		return applicationRepository.getApplications().stream()
-				.filter(a -> a.getCandidateEmail().equalsIgnoreCase(candidateEmail))
+		return applicationRepository.findByCandidateEmail(candidateEmail).stream()
 				.filter(a -> a.getRelatedOffer().equals(offer)).findFirst();
 	}
 
@@ -79,7 +78,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 	@Override
 	public Application updateStatus(String jobTitle, String candidateEmail, String newStatus) {
 		ApplicationStatus newStat;
-		//Convert string status to Enum
+		// Convert string status to Enum
 		try {
 			newStat = ApplicationStatus.valueOf(newStatus.toUpperCase());
 		} catch (RuntimeException e) {
