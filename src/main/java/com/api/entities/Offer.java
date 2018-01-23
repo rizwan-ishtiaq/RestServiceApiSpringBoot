@@ -21,6 +21,15 @@ public class Offer {
 	private LocalDate startDate;
 	private int numberOfApplications;
 
+	// To use as simple POJO and use with out business logic
+	public Offer() {
+	}
+
+	// Business: Offer can't exist without job title
+	public Offer(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
 	public String getJobTitle() {
 		return jobTitle;
 	}
